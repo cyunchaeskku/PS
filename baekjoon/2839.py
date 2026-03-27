@@ -28,3 +28,24 @@ for i in range(6, n+1):
 # --- answer ---
 ans = dp[n] if dp[n] != float('inf') else -1
 print(ans)
+
+"""
+[최적해]
+3부터 i가 순회하면 자동으로 초기화하므로 init 단계가 필요 없다
+---
+import sys
+
+MAX_N = 5_000
+n = int(input().strip())
+
+dp = [float('inf')] * (MAX_N + 1)
+dp[0] = 0
+
+for i in range(3, n + 1):
+    for kilo in [3, 5]:
+        if i - kilo >= 0 and dp[i - kilo] != float('inf'):
+            dp[i] = min(dp[i], dp[i - kilo] + 1)
+
+ans = dp[n] if dp[n] != float('inf') else -1
+print(ans)
+"""
