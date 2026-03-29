@@ -1,5 +1,6 @@
 """
 https://www.acmicpc.net/problem/12865
+Gold V
 """
 
 n, k = map(int, input().split())
