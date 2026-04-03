@@ -25,6 +25,24 @@ def dfs(node, visited):
         if not visited[child]:
             dfs(child, visited)
         
-dfs(1, visited)
-# print()
+def bfs(graph, start, v):
+    global ans
+    visited = [False] * (v+1)
+    q = deque([start])
+    visited[start] = True
+    
+    while q:
+        node = q.popleft()
+        ans += 1
+        print(node, end=' ')
+        
+        for child in graph[node]:
+            if not visited[child]:
+                visited[child] = True
+                q.append(child)
+    
+
+# dfs(1, visited)
+bfs(graph, 1, v)
+print()
 print(ans-1)
